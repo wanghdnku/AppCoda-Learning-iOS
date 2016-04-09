@@ -1,6 +1,18 @@
 #Swift学习笔记
 =============
 ----------------------
+##iOS9不能连接HTTP
+在`info.plist`中添加
+
+```
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+```
+
+
 ##在swift种设置弹出框
 ```swift
 @IBAction func showMessage() {
@@ -192,11 +204,16 @@ tableView.tableFooterView = UIView(frame: CGRectZero)
 改变行间分隔线的颜色
 
 ```swift
-
+tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
 ```
+###设定行间距自适应的方法
+1.在ViewDidLoad里面添加：
 
-
-
+```swift
+tableView.estimatedRowHeight = 36.0tableView.rowHeight = UITableViewAutomaticDimension
+```
+2.设置可换行文字的Lines为0；
+3.设定Label的Constrains，使得可以推断出与上下两边的间距。
 
 
 
@@ -228,9 +245,9 @@ navigationController?.setnavigationBarHidden(false, animated: true)
 在所在Controller的ViewDidLoad里加入
 
 ```swift
-title = “索要显示的标题”
+title = “所要显示的标题”
 ```
-###取消Navigation Bar的返回按钮
+###取消Navigation Bar返回按钮上的文字
 在上一个ViewController里面的ViewDidLoad里加入
 
 ```swift
@@ -280,3 +297,15 @@ override func preferredStatusBarStyle() -> UIStatusBarStyle {
 ```swift
 UIApplication.sharedApplication().statusBarStyle = .LightContent
 ```
+
+##UIImageView
+直接从URL来获取image
+
+```swift
+if let url = NSURL(string: "https://api.mapbox.com/styles/v1/haidongw/cilxc3u6h005v9mm3udbspca1/static/127.963238,-26.48076,2.72,0.00,0.00/600x400?access_token=pk.eyJ1IjoiaGFpZG9uZ3ciLCJhIjoiY2lseDEyNnF5MDVxaHVka3M4eHI3bWVnaiJ9.3zSqNekaroRp0zGsCCCfYQ") {
+    if let data = NSData(contentsOfURL: url) {
+        imageView.image = UIImage(data: data)
+    }
+}
+```
+
