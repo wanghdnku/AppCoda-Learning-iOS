@@ -308,4 +308,8 @@ if let url = NSURL(string: "https://api.mapbox.com/styles/v1/haidongw/cilxc3u6h0
     }
 }
 ```
+<br />
 
+---
+#地图上的Button被覆盖
+在ViewDidLoad里面添加`mapView.bringSubviewToFront(button)`
