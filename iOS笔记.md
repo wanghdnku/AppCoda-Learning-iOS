@@ -12,6 +12,15 @@
 </dict>
 ```
 
+##隐藏键盘
+使输入框失去焦点，即可隐藏键盘：
+
+```swift
+override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    xxxx.resignFirstResponder()
+}
+```
+
 
 ##在swift种设置弹出框
 ```swift
@@ -313,3 +322,63 @@ if let url = NSURL(string: "https://api.mapbox.com/styles/v1/haidongw/cilxc3u6h0
 ---
 #地图上的Button被覆盖
 在ViewDidLoad里面添加`mapView.bringSubviewToFront(button)`
+
+<br />
+
+---
+#设定弹出框样式
+
+```swift
+// 设置Alert信息
+let alertMessage = UIAlertController(title: "Alert Title", message: “Alert Message”, preferredStyle: .Alert)
+
+// 向Alert信息添加选项
+alertMessage.addAction(UIAlertAction(title: "DETAIL", style: .Default, handler: detailActionHandler))
+alertMessage.addAction(UIAlertAction(title: "CLOSE", style: .Destructive, handler: nil))
+
+// 将Alert显示出来
+self.presentViewController(alertMessage, animated: true, completion: nil)
+```
+
+addAction时，Handler可以自定义，方法如下：
+
+```swift
+// 以下Handler定义了又一个弹窗，当点击AlertMessage的“Detail”选项时，弹出
+let detailActionHandler = { (action:UIAlertAction!) -> Void in
+    // 定义一个Alert信息，Style为弹出式Alert
+    let detailMessage = UIAlertController(title: "Detail Message", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .ActionSheet) 
+    // 向Alert弹框里面增加一个选项
+    detailMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+    // 显示弹框
+    self.presentViewController(detailMessage, animated: true, completion: nil)
+}
+```
+
+可以设置弹出信息的样式，有两种方法：
+(1) 直接通过设置AlertMessage的setValue：
+
+```swift
+alertMessage.setValue(
+    NSAttributedString(string: extendedMarker.getProperties(), attributes: [NSFontAttributeName: UIFont.systemFontOfSize(9), NSForegroundColorAttributeName: UIColor.darkGrayColor()]), forKey: "attributedMessage"
+)
+```
+
+(2) 要想设置对其方式，还要麻烦一些
+
+```swift
+// 设置了左对齐的段落格式
+let paragraphStyle = NSMutableParagraphStyle()
+paragraphStyle.alignment = NSTextAlignment.Left
+let messageText = NSMutableAttributedString(
+    string: "Message text",
+    attributes: [
+        NSParagraphStyleAttributeName: paragraphStyle,
+        //NSFontAttributeName: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
+        NSFontAttributeName: UIFont(name: "Menlo-Regular",size: 9.0)!,
+        NSForegroundColorAttributeName : UIColor.blackColor()
+    ]
+)
+// 此处与上面方法一样，把设定好的Message通过设置setValue的方法，赋值给AlertMessage
+alertMessage.setValue(messageText, forKey: "attributedMessage")
+```
+如果forKey选为`"attributedTitle”`，则更改的是标题的样式
