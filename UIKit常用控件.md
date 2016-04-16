@@ -263,15 +263,3 @@ override func viewDidLoad() {
 
 
 
-
-
-
-
-
-------
-[How to show detail info with popover](http://blog.apoorvmote.com/how-to-show-detail-info-with-popover/)
-[How to delete & reorder rows uitableview in iOS Swift](http://blog.apoorvmote.com/delete-reorder-rows-uitableview-ios-swift/)
-[How to create uitableview with multiple sections in iOS Swift](http://blog.apoorvmote.com/uitableview-with-multiple-sections-ios-swift/)
-[How to show and hide static cells with uiswitch](http://blog.apoorvmote.com/how-to-show-and-hide-static-cells-with-uiswitch/)
-[How to pop up datepicker inside static cells](http://blog.apoorvmote.com/how-to-pop-up-datepicker-inside-static-cells/)
-[How to move uitextfield up when keyboard appears](http://blog.apoorvmote.com/move-uitextfield-up-when-keyboard-appears/)
