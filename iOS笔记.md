@@ -34,6 +34,7 @@ override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
 }
 ```
 
+
 -----
 ##查看App在各个屏幕尺寸下的表现
 >按住option点`assistant pop-up menu`的`preview`选项
