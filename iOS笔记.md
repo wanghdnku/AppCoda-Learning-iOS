@@ -383,3 +383,21 @@ let messageText = NSMutableAttributedString(
 alertMessage.setValue(messageText, forKey: "attributedMessage")
 ```
 如果forKey选为`"attributedTitle”`，则更改的是标题的样式
+
+
+<br />
+
+---
+#用代码的方式添加SubView
+
+```swift
+// 先在前面定义Spinner
+let spinner = UIActivityndicatorView(activityIndicatorStyle: .WhiteLarge)
+
+// 添加到一个叫login的Button上面去
+self.login.addsubView(self.spinner)
+// 移动spinner的位置（初始时候是在左上角）
+self.spinner.frame.origin = CGPointMake(12, 12)
+// 启动Spinner的动画
+self.spinner.startAnimating()
+```
