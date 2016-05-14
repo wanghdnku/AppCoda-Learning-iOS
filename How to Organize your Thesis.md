@@ -157,7 +157,7 @@ There are different expectations for Master's theses and for Doctoral theses. Th
 The contribution to knowledge of a Master's thesis can be in the nature of an incremental improvement in an area of knowledge, or the application of known techniques in a new area. The Ph.D. must be a substantial and innovative contribution to knowledge.
 
 
-
+--The end
 
 
 
