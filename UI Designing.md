@@ -33,8 +33,8 @@ iPhone 4      | 960 * 640 px   | 480 * 320 pt | 326      | 163     |
 iPhone 3GS      | 1pt = 1px     |
 iPhone 4/S      | 1pt = 2px     |
 iPhone 5/C/S    | 1pt = 2px     |
-iPhone 6/S      | 1pt = 2px     |
-iPhone 6Plus/S  | 1pt = 3px     |
+iPhone 6/s      | 1pt = 2px     |
+iPhone 6/s Plus | 1pt = 3px     |
 
 
 
